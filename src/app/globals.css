@@ -155,8 +155,8 @@ body {
 
 /* Research page specific styles */
 .explore-page {
-  margin: 20vh auto;
-  max-width: 900px;
+  margin: 3rem auto;
+  max-width: 1080px;
   padding: 0 20px;
 }
 
@@ -172,6 +172,20 @@ body {
 /* Common section styling */
 .section-divider {
   margin: 40px 0 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  position: relative;
+}
+
+.section-divider::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--clr-accent), transparent);
 }
 
 .reports-section,
@@ -536,6 +550,12 @@ body {
 .nav-logo {
   display: flex;
   align-items: center;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.nav-logo:hover {
+  opacity: 0.8;
 }
 
 .logo-image {
@@ -555,7 +575,7 @@ body {
 }
 
 .nav-item.dropdown-item {
-  padding: 8px 8px 16px 8px;
+  padding: 8px 4px;
 }
 
 .nav-button {

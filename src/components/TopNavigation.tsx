@@ -24,7 +24,7 @@ const TopNavigation: React.FC = () => {
   return (
     <nav className="top-navigation">
       <div className="nav-container">
-        <div className="nav-logo">
+        <div className="nav-logo" onClick={() => window.location.href = "/"}>
           <Image 
             src="/img/logo_dao.png" 
             alt="DAOstar Logo" 
@@ -35,15 +35,10 @@ const TopNavigation: React.FC = () => {
         </div>
         
         <div className="nav-menu">
-          <div 
-            className="nav-item dropdown-item"
-            onMouseEnter={() => setIsStandardsOpen(true)}
-            onMouseLeave={() => setIsStandardsOpen(false)}
-          >
+          <div className="nav-item dropdown-item">
             <Popover
               content={standardsMenu}
               position="bottom"
-              isOpen={isStandardsOpen}
               interactionKind="hover"
               hoverOpenDelay={0}
               hoverCloseDelay={300}
