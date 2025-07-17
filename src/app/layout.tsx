@@ -39,7 +39,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <TopNavigation />
-        {children}
+        <div className="page-wrapper">
+          {children}
+        </div>
       </body>
     </html>
   );

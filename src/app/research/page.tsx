@@ -442,16 +442,14 @@ const FellowsSection: React.FC = () => {
 // Main Research Page Component
 // ===============================
 
-const ResearchPage: React.FC = () => {
+export default function Research() {
   return (
-    <div className="explore-page">
+    <>
       <ReportsSection />
       <Divider className="section-divider" />
       <ProgramsSection />
       <Divider className="section-divider" />
       <FellowsSection />
-    </div>
+    </>
   );
-};
-
-export default ResearchPage;
+}

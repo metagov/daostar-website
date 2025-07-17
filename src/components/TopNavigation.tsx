@@ -11,12 +11,12 @@ const TopNavigation: React.FC = () => {
   const standardsMenu = (
     <Menu>
       <MenuItem 
-        text="IDs for DAOs" 
-        onClick={() => window.open("#", "_blank")}
+        text="DAO ID" 
+        onClick={() => window.location.href = "/daoid"}
       />
       <MenuItem 
         text="OpenGrants" 
-        onClick={() => window.open("#", "_blank")}
+        onClick={() => window.location.href = "/opengrants"}
       />
     </Menu>
   );
@@ -57,7 +57,7 @@ const TopNavigation: React.FC = () => {
               className="nav-button"
               text="Research"
               minimal
-              onClick={() => window.location.href = "/"}
+              onClick={() => window.location.href = "/research"}
             />
           </div>
         </div>

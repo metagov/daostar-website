@@ -154,7 +154,7 @@ body {
 }
 
 /* Research page specific styles */
-.explore-page {
+.page-wrapper {
   margin: 3rem auto;
   max-width: 1080px;
   padding: 0 20px;
