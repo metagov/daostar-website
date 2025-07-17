@@ -28,8 +28,8 @@ const TopNavigation: React.FC = () => {
           <Image 
             src="/img/logo_dao.png" 
             alt="DAOstar Logo" 
-            width={120}
-            height={43}
+            width={80}
+            height={28}
             className="logo-image"
           />
         </div>
