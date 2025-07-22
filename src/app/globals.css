@@ -703,13 +703,13 @@ body {
   mix-blend-mode: multiply;
 }
 
-/* Hand image container - Absolute at very top */
+/* Hand image container - Below navigation */
 .hand-container {
   position: absolute;
-  top: 0;
+  top: 0; /* Below navigation bar */
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1001; /* Above navigation */
+  z-index: 999; /* Below navigation */
   pointer-events: none;
 }
 
@@ -748,7 +748,7 @@ body {
 }
 
 .main-title {
-  font-size: 4rem;
+  font-size: 3rem;
   line-height: 1.1;
   font-weight: 100;
   margin-bottom: 1.5rem;
@@ -891,7 +891,7 @@ body {
   }
   
   .main-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   
   .hero-subtitle {
