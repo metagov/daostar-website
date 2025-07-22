@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Popover, Menu, MenuItem, Button } from "@blueprintjs/core";
 import { ChevronDown } from "@blueprintjs/icons";
 import Image from "next/image";
 
 const TopNavigation: React.FC = () => {
-  const [isStandardsOpen, setIsStandardsOpen] = useState(false);
 
   const standardsMenu = (
     <Menu>

@@ -80,7 +80,7 @@ export default function OpenGrants() {
 
       {/* Target Audience */}
       <section className="mb-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Who It's For</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">Who It&apos;s For</h2>
         <div className="research-card-outlay">
           <div className="bp4-card p-8 hover:bg-card-bg-hover transition-colors">
             <h3 className="text-xl font-semibold mb-4">Grant Program Leads</h3>

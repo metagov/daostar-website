@@ -29,7 +29,7 @@ export default function Home() {
                   strings: ["standards", "research", "public goods"],
                   autoStart: true,
                   loop: true,
-                  changeDeleteSpeed: 2000
+                  deleteSpeed: 50
                 }}
               />for DAOs
             </h1>
