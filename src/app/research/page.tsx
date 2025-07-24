@@ -2,8 +2,7 @@
 
 import React, { useState, useCallback } from "react";
 import Image from "next/image";
-import * as Separator from "@radix-ui/react-separator"; 
-import { cn, buttonVariants, cardVariants } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 // ===============================
 // Data
@@ -290,7 +289,7 @@ const ContributorSection: React.FC = () => {
         <div className="mb-8">
           <p className="text-text-secondary leading-relaxed text-center">
             We are looking for anyone exploring meaningful questions about DAOs. If you are an independent researcher, builder, student, writer, or just curious about the DAO space, this is for you. 
-            You don't need to be affiliated with an institution or have published before. All you need is a desire to contribute to thoughtful conversations in the DAO ecosystem.
+            You don&apos;t need to be affiliated with an institution or have published before. All you need is a desire to contribute to thoughtful conversations in the DAO ecosystem.
           </p>
         </div>
 
@@ -309,22 +308,22 @@ const ContributorSection: React.FC = () => {
               <div className="w-6 h-6 rounded-full bg-brand-accent text-brand-dark flex items-center justify-center text-sm font-bold mt-0.5">2</div>
               <div>
                 <h3 className="font-medium text-text-primary mb-1">Submit Your Work</h3>
-                <p className="text-text-secondary text-sm leading-relaxed">When you're ready, submit a research piece for consideration. If accepted, you'll be recognized as a DAOstar Research Contributor.</p>
+                <p className="text-text-secondary text-sm leading-relaxed">When you&apos;re ready, submit a research piece for consideration. If accepted, you&apos;ll be recognized as a DAOstar Research Contributor.</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <div className="w-6 h-6 rounded-full bg-brand-accent text-brand-dark flex items-center justify-center text-sm font-bold mt-0.5">3</div>
               <div>
                 <h3 className="font-medium text-text-primary mb-1">Get Published</h3>
-                <p className="text-text-secondary text-sm leading-relaxed">We'll publish your work on our site and include it in our research directory. You'll be part of a growing network of DAO researchers and practitioners.</p>
+                <p className="text-text-secondary text-sm leading-relaxed">We&apos;ll publish your work on our site and include it in our research directory. You&apos;ll be part of a growing network of DAO researchers and practitioners.</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* What you'll get */}
+        {/* What you&apos;ll get */}
         <div className="mb-8">
-          <h2 className="text-xl font-medium mb-4 text-brand-accent">What You'll Get</h2>
+          <h2 className="text-xl font-medium mb-4 text-brand-accent">What You&apos;ll Get</h2>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-white/10 p-4 rounded-lg">
               <h3 className="font-medium text-text-primary mb-2">Platform for Impact</h3>
