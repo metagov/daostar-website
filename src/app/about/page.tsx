@@ -18,20 +18,6 @@ export default function About() {
         />
       </div>
 
-      {/* Header Section */}
-      <section className="relative z-[2] min-h-[40vh] flex items-center justify-center px-8 md:px-16 max-w-6xl mx-auto pt-72 md:pt-80">
-        <div className="flex justify-center items-center w-full">
-          <div className="text-center max-w-5xl">
-            <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl leading-none font-light mb-6 text-text-primary font-heading">
-              About DAOstar
-            </h1>
-            <p className="text-xl text-text-secondary font-light max-w-3xl mx-auto">
-              The story of how we&apos;re building the future of decentralized governance
-            </p>
-          </div>
-        </div>
-      </section>
-
       <StarWarsCrawl />
 
       {/* History Section */}

@@ -9,45 +9,21 @@ import { cn, buttonVariants, cardVariants } from "@/lib/utils";
 // Data
 // ===============================
 
-// Research Programs Data
-const researchPrograms = [
-  {
-    title: "Research Collaborator",
-    description: "Join our inclusive community of researchers working on DAO-related topics",
-    bulletPoints: [
-      "Join our Slack community",
-      "Participate in regular research collaboration calls",
-      "Share ideas and collaborate with other researchers"
-    ],
-    buttonText: "Join DAOstar Slack",
-    buttonLink: "https://join.slack.com/t/daostar/shared_invite/zt-33cyohbj4-Tk0COtKWTl7I3pu~YmHepw",
-    disabled: false
-  },
-  {
-    title: "Research Contributor",
-    description: "Earn recognition for your research by publishing with DAOstar",
-    bulletPoints: [
-      "Submit and publish research papers",
-      "Get recognized as a DAOstar Research Contributor",
-      "Join a network of DAO researchers and practitioners"
-    ],
-    buttonText: "Submit Contributor Application",
-    buttonLink: "https://forms.gle/cLZXbWKkufRKJEMX7",
-    disabled: false
-  },
-  {
-    title: "Research Fellow",
-    description: "Our intensive fellowship program for researchers who want to shape the future of DAO research",
-    bulletPoints: [
-      "Participate in a dedicated fellowship program",
-      "Collaborate with other fellows on research",
-      "Publish research with DAOstar"
-    ],
-    buttonText: "Next Season Coming Soon!",
-    buttonLink: "#",
-    disabled: true
-  }
-];
+
+// Research Fellowship Data
+const researchFellowship = {
+  title: "Research Fellowship",
+  description: "Shape the future of DAO research through our intensive fellowship program",
+  bulletPoints: [
+    "Participate in a cohort-based fellowship program",
+    "Receive guided mentorship from experts in the DAO ecosystem",
+    "Collaborate with other fellows on cutting-edge research",
+    "Publish research with DAOstar and contribute to the DAO ecosystem"
+  ],
+  buttonText: "Next Season Coming Soon!",
+  buttonLink: "#",
+  disabled: true
+};
 
 // Research Papers Data
 const researchPapers: Array<{
@@ -161,80 +137,67 @@ interface ResearchCardProps {
   description: string;
   pdfUrl: string | Record<string, string>;
   date: string;
-  languageOptions?: { current: string } | null;
-  setLanguage?: (language: string) => void;
 }
 
 const ResearchCard: React.FC<ResearchCardProps> = ({ 
   title, 
   description, 
   pdfUrl, 
-  date, 
-  languageOptions, 
-  setLanguage 
+  date
 }) => {
+  const [selectedLanguage, setSelectedLanguage] = useState<string>(() => {
+    if (typeof pdfUrl === 'object') {
+      return Object.keys(pdfUrl)[0];
+    }
+    return 'default';
+  });
+
   const handlePdfClick = useCallback(() => {
-    const currentLanguage = languageOptions ? languageOptions.current : 'default';
-    trackPdfInteraction(title, currentLanguage);
-    const url = typeof pdfUrl === 'string' ? pdfUrl : pdfUrl[languageOptions?.current || 'English'];
+    trackPdfInteraction(title, selectedLanguage);
+    const url = typeof pdfUrl === 'string' ? pdfUrl : pdfUrl[selectedLanguage];
     window.open(url, '_blank');
-  }, [title, pdfUrl, languageOptions]);
+  }, [title, pdfUrl, selectedLanguage]);
 
   return (
-    <div className={cn(cardVariants({ variant: "interactive" }), "w-80 h-auto flex flex-col justify-between p-4 relative")}>
+    <div className="flex flex-col p-4 bg-white/20 rounded-lg transition-all duration-200 hover:-translate-y-1 hover:bg-white/25 cursor-pointer w-full h-auto border border-white/10 hover:border-white/20">
       <div 
-        className="cursor-pointer transition-all duration-300 relative rounded"
+        className="cursor-pointer flex-1 flex flex-col"
         onClick={handlePdfClick}
       >
-        <h3 className="text-lg font-bold mb-2 truncate">{title}</h3>
-        <Separator.Root className="border-b border-card-border my-2" />
-        <div className="flex-1 flex flex-col justify-between">
-          <div className="flex flex-col text-left">
-            <p className="text-sm text-left my-0 mb-2 overflow-hidden text-ellipsis line-clamp-4 max-h-20">
-              {description}
-            </p>
-            <p className="text-xs text-text-placeholder m-0">
-              <span className="text-text-placeholder">Published: </span>{date}
-            </p>
-          </div>
-        </div>
-        {/* Arrow indicator */}
-        <div className="absolute bottom-2 right-2 text-text-secondary text-lg transition-all duration-300 group-hover:text-brand-secondary group-hover:translate-x-1">
-          →
-        </div>
+        <h3 className="text-lg font-medium mb-3 text-center">{title}</h3>
+        <p className="text-sm text-text-secondary text-center mb-3 leading-relaxed flex-1">
+          {description}
+        </p>
+        <p className="text-xs text-text-placeholder text-center mb-4">
+          <span className="text-text-placeholder">Published: </span>{date}
+        </p>
       </div>
-      
-      <Separator.Root className="border-b border-card-border my-2" />
-      
-      <div className="flex justify-center items-center mt-4 relative">
-        {languageOptions && typeof pdfUrl === 'object' && (
-          <div className="flex gap-2 z-10 relative">
-            {Object.keys(pdfUrl).map((lang) => (
-              <button
-                key={lang}
-                className={cn(
-                  buttonVariants({ variant: "secondary", size: "sm" }),
-                  languageOptions.current === lang && "bg-brand-secondary text-white border-brand-secondary shadow-md"
-                )}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setLanguage?.(lang);
-                }}
-              >
-                {lang}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
+      {typeof pdfUrl === 'object' && (
+        <div className="flex justify-center items-center gap-2">
+          {Object.keys(pdfUrl).map((lang) => (
+            <button
+              key={lang}
+              className={cn(
+                "px-3 py-1 text-xs rounded-md border transition-all duration-200",
+                selectedLanguage === lang 
+                  ? "bg-brand-accent text-brand-dark border-brand-accent font-medium" 
+                  : "bg-transparent text-text-secondary border-white/20 hover:border-white/40 hover:bg-white/5"
+              )}
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedLanguage(lang);
+              }}
+            >
+              {lang}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
 
 const ReportsSection: React.FC = () => {
-  const [taiwanLanguage, setTaiwanLanguage] = useState("Mandarin");
-  const [koreaLanguage, setKoreanLanguage] = useState("Korean");
-
   // Sort research papers by date (most recent first)
   const sortedPapers = [...researchPapers].sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
@@ -246,7 +209,7 @@ const ReportsSection: React.FC = () => {
       <p className="text-xl leading-8 text-center mb-8 text-text-primary">
         Explore our latest research and insights on DAOs and decentralized governance.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mt-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full mt-5 auto-rows-fr">
         {sortedPapers.map((paper, index) => (
           <ResearchCard
             key={index}
@@ -254,20 +217,6 @@ const ReportsSection: React.FC = () => {
             description={paper.description}
             pdfUrl={paper.pdfUrl}
             date={paper.date}
-            languageOptions={
-              typeof paper.pdfUrl === 'object' && 'Mandarin' in paper.pdfUrl
-                ? { current: taiwanLanguage }
-                : typeof paper.pdfUrl === 'object' && 'Korean' in paper.pdfUrl
-                ? { current: koreaLanguage }
-                : null
-            }
-            setLanguage={
-              typeof paper.pdfUrl === 'object' && 'Mandarin' in paper.pdfUrl
-                ? setTaiwanLanguage
-                : typeof paper.pdfUrl === 'object' && 'Korean' in paper.pdfUrl
-                ? setKoreanLanguage
-                : undefined
-            }
           />
         ))}
       </div>
@@ -303,28 +252,24 @@ const ProgramCard: React.FC<ProgramCardProps> = ({
   }, [buttonLink, disabled]);
 
   return (
-    <div className={cn(cardVariants(), "h-full flex flex-col p-4")}>
-      <h3 className="text-lg font-bold mb-2 truncate">{title}</h3>
-      <Separator.Root className="border-b border-card-border my-2" />
-      <div className="flex-1 flex flex-col justify-between">
-        <div className="flex flex-col text-left">
-          <p className="text-sm text-left my-0 mb-2">{description}</p>
-          <ul className="list-disc pl-5 my-3">
-            {bulletPoints.map((point, index) => (
-              <li key={index} className="text-sm mb-2 leading-tight">{point}</li>
-            ))}
-          </ul>
-        </div>
+    <div className="flex flex-col p-4 bg-white/20 rounded-lg transition-all duration-200 hover:-translate-y-1 hover:bg-white/25 h-full border border-white/10 hover:border-white/20">
+      <h3 className="text-lg font-medium mb-3 text-center">{title}</h3>
+      <div className="flex-1 flex flex-col">
+        <p className="text-sm text-text-secondary text-center mb-4 leading-relaxed">{description}</p>
+        <ul className="list-disc pl-5 mb-6 space-y-2 flex-1">
+          {bulletPoints.map((point, index) => (
+            <li key={index} className="text-sm text-text-secondary leading-relaxed">{point}</li>
+          ))}
+        </ul>
       </div>
-      <Separator.Root className="border-b border-card-border my-2" />
-      <div className="flex justify-center items-center mt-4">
+      <div className="flex justify-center items-center">
         {disabled ? (
-          <div className="text-base font-medium text-gray-500 text-center py-2 px-4">
+          <div className="text-sm font-medium text-text-placeholder text-center py-2 px-4">
             Coming Soon
           </div>
         ) : (
           <button
-            className={cn(buttonVariants({ variant: "default" }), "py-2 px-4")}
+            className="px-3 py-1.5 bg-brand-accent text-brand-dark font-medium rounded-md border-2 border-brand-accent text-sm transition-all duration-200 hover:bg-brand-accent/90 hover:border-brand-accent/90 hover:shadow-lg hover:scale-105 cursor-pointer"
             onClick={handleButtonClick}
           >
             {buttonText}
@@ -335,25 +280,80 @@ const ProgramCard: React.FC<ProgramCardProps> = ({
   );
 };
 
-const ProgramsSection: React.FC = () => {
+const ContributorSection: React.FC = () => {
   return (
     <section className="w-full mt-10">
-      <h1 className="text-section leading-10 font-normal text-center mb-4">Research Programs</h1>
-      <p className="text-xl leading-8 text-center mb-8 text-text-primary">
-        Join our research community and contribute to the advancement of DAO knowledge and practices.
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mt-5">
-        {researchPrograms.map((program, index) => (
-          <ProgramCard
-            key={index}
-            title={program.title}
-            description={program.description}
-            bulletPoints={program.bulletPoints}
-            buttonText={program.buttonText}
-            buttonLink={program.buttonLink}
-            disabled={program.disabled}
-          />
-        ))}
+      <h1 className="text-section leading-10 font-normal text-center mb-6">Become a Research Contributor</h1>
+      <div className="max-w-4xl mx-auto">
+        
+        {/* Who is this for */}
+        <div className="mb-8">
+          <p className="text-text-secondary leading-relaxed text-center">
+            We are looking for anyone exploring meaningful questions about DAOs. If you are an independent researcher, builder, student, writer, or just curious about the DAO space, this is for you. 
+            You don't need to be affiliated with an institution or have published before. All you need is a desire to contribute to thoughtful conversations in the DAO ecosystem.
+          </p>
+        </div>
+
+        {/* How it works */}
+        <div className="mb-8">
+          <h2 className="text-xl font-medium mb-4 text-brand-accent">How It Works</h2>
+          <div className="space-y-4">
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 rounded-full bg-brand-accent text-brand-dark flex items-center justify-center text-sm font-bold mt-0.5">1</div>
+              <div>
+                <h3 className="font-medium text-text-primary mb-1">Join the Community</h3>
+                <p className="text-text-secondary text-sm leading-relaxed">Join our community and biweekly research collaboration calls. Share ideas, ask questions, or co-work on research with others.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 rounded-full bg-brand-accent text-brand-dark flex items-center justify-center text-sm font-bold mt-0.5">2</div>
+              <div>
+                <h3 className="font-medium text-text-primary mb-1">Submit Your Work</h3>
+                <p className="text-text-secondary text-sm leading-relaxed">When you're ready, submit a research piece for consideration. If accepted, you'll be recognized as a DAOstar Research Contributor.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 rounded-full bg-brand-accent text-brand-dark flex items-center justify-center text-sm font-bold mt-0.5">3</div>
+              <div>
+                <h3 className="font-medium text-text-primary mb-1">Get Published</h3>
+                <p className="text-text-secondary text-sm leading-relaxed">We'll publish your work on our site and include it in our research directory. You'll be part of a growing network of DAO researchers and practitioners.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* What you'll get */}
+        <div className="mb-8">
+          <h2 className="text-xl font-medium mb-4 text-brand-accent">What You'll Get</h2>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-white/10 p-4 rounded-lg">
+              <h3 className="font-medium text-text-primary mb-2">Platform for Impact</h3>
+              <p className="text-text-secondary text-sm leading-relaxed">Your research will contribute to advancing thought leadership on DAOs, shaping the future of decentralized governance.</p>
+            </div>
+            <div className="bg-white/10 p-4 rounded-lg">
+              <h3 className="font-medium text-text-primary mb-2">Supportive Community</h3>
+              <p className="text-text-secondary text-sm leading-relaxed">Join a network of peers, researchers, and DAO professionals eager to collaborate and support your work.</p>
+            </div>
+            <div className="bg-white/10 p-4 rounded-lg">
+              <h3 className="font-medium text-text-primary mb-2">Professional Growth</h3>
+              <p className="text-text-secondary text-sm leading-relaxed">Hone your research, writing, and communication skills while working on meaningful, real-world topics.</p>
+            </div>
+          </div>
+        </div>
+
+
+        {/* Call to action */}
+        <div className="text-center">
+          <p className="text-text-secondary mb-6 leading-relaxed">
+            Ready to contribute to the future of DAOs? We review submissions within 2-3 weeks and provide feedback to help you succeed.
+          </p>
+          <button
+            className="px-6 py-3 bg-brand-accent text-brand-dark font-medium rounded-lg border-2 border-brand-accent transition-all duration-200 hover:bg-brand-accent/90 hover:border-brand-accent/90 hover:shadow-lg hover:scale-105 cursor-pointer"
+            onClick={() => window.open("https://forms.gle/cLZXbWKkufRKJEMX7", "_blank")}
+          >
+            Submit Contributor Application →
+          </button>
+        </div>
       </div>
     </section>
   );
@@ -408,8 +408,10 @@ const FellowCard: React.FC<FellowCardProps> = ({ name, imagePath }) => {
             target.onerror = null;
             target.style.display = "none";
             const parent = target.parentNode as HTMLElement;
-            parent.classList.add("text-4xl", "font-bold", "text-white/50");
-            parent.innerText = name.split(' ').map(n => n[0]).join('');
+            if (parent) {
+              parent.classList.add("text-4xl", "font-bold", "text-white/50");
+              parent.innerText = name.split(' ').map(n => n[0]).join('');
+            }
           }}
         />
       </div>
@@ -421,10 +423,28 @@ const FellowCard: React.FC<FellowCardProps> = ({ name, imagePath }) => {
 const FellowsSection: React.FC = () => {
   return (
     <section className="w-full mt-10">
-      <h1 className="text-section leading-10 font-normal text-center mb-4">Our Researchers</h1>
+      <h1 className="text-section leading-10 font-normal text-center mb-4">Research Fellowship</h1>
       <p className="text-xl leading-8 text-center mb-8 text-text-primary">
-        Meet our talented Researchers who are driving innovation in DAO governance and decentralized systems.
+        Our intensive fellowship program for researchers shaping the future of DAO research.
       </p>
+      
+      {/* Fellowship Program Info */}
+      <div className="flex justify-center w-full mb-12">
+        <div className="max-w-md">
+          <ProgramCard
+            title={researchFellowship.title}
+            description={researchFellowship.description}
+            bulletPoints={researchFellowship.bulletPoints}
+            buttonText={researchFellowship.buttonText}
+            buttonLink={researchFellowship.buttonLink}
+            disabled={researchFellowship.disabled}
+          />
+        </div>
+      </div>
+      
+      <h2 className="text-xl leading-8 text-center mb-8 text-text-primary">
+        Meet our talented Fellows who are driving innovation in DAO governance and decentralized systems.
+      </h2>
 
       <SeasonDescription 
         season="DAOstar Fellowship Season 1"
@@ -472,7 +492,7 @@ export default function Research() {
       <div className="my-10 border-b border-white/20 w-full relative">
         <div className="absolute bottom-[-1px] left-1/2 transform -translate-x-1/2 w-15 h-0.5 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></div>
       </div>
-      <ProgramsSection />
+      <ContributorSection />
       <div className="my-10 border-b border-white/20 w-full relative">
         <div className="absolute bottom-[-1px] left-1/2 transform -translate-x-1/2 w-15 h-0.5 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></div>
       </div>

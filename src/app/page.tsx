@@ -191,9 +191,22 @@ export default function Home() {
           <h2 className="text-section text-text-primary font-heading font-light mb-6">
             Upcoming Events
           </h2>
-          <p className="text-lg text-text-secondary font-light max-w-3xl mx-auto leading-relaxed">
-            We regularly host community events to create a space to zoom out and explore how we can make DAOs work, scale, and matter.
+          <p className="text-lg text-text-secondary font-light max-w-3xl mx-auto leading-relaxed mb-6">
+            We regularly host community calls to create a space to zoom out and explore how we can make DAOs work, scale, and matter. 
+            Building or researching something cool in DAOs, digital governance, or organizational behavior? We&apos;d love to learn from you.
           </p>
+          <Link 
+            href="https://forms.gle/7KA8xPBrdrtQWnYD8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
+              "inline-flex items-center px-6 py-3 bg-brand-accent text-white font-medium rounded-lg mb-8",
+              "transition-all duration-300 hover:bg-brand-accent/90 hover:shadow-lg hover:-translate-y-1",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30"
+            )}
+          >
+            Apply to Present →
+          </Link>
         </div>
         <div className="flex justify-center">
           <div className={cn(
