@@ -28,14 +28,6 @@
   box-sizing: border-box;
 }
 
-:root {
-  --clr-light: rgb(233, 233, 233);
-  --clr-dark: #191919;
-  --clr-accent: #F8E441;
-  --clr-secondary: rgba(66, 142, 255, 1);
-  --font: 'Geogrotesque', 'Roboto Condensed', 'Roboto', 'Arial', sans-serif;
-  --heading-font: 'Geogrotesque', 'IBM Plex Mono', 'Roboto Condensed', 'Roboto', 'Arial', sans-serif;
-}
 
 /* Typography */
 html {
@@ -46,9 +38,9 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
-  background-color: var(--clr-dark);
-  color: var(--clr-light);
-  font-family: var(--font);
+  background-color: #191919;
+  color: rgb(233, 233, 233);
+  font-family: 'Geogrotesque', 'Roboto Condensed', 'Roboto', 'Arial', sans-serif;
   font-size: 20px;
   line-height: 24px;
   font-weight: normal;
@@ -82,17 +74,4 @@ body {
   font-family: 'Geogrotesque', sans-serif;
 }
 
-/* Star Wars Crawl Animation */
-@keyframes crawl {
-  0% {
-    transform: perspective(800px) rotateX(15deg) translateY(100vh);
-  }
-  100% {
-    transform: perspective(800px) rotateX(15deg) translateY(-100vh);
-  }
-}
-
-.animate-crawl {
-  animation: crawl 15s linear infinite;
-}
 
