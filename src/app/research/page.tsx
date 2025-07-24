@@ -179,9 +179,14 @@ const ResearchCard: React.FC<ResearchCardProps> = ({
               className={cn(
                 "px-3 py-1 text-xs rounded-md border transition-all duration-200",
                 selectedLanguage === lang 
-                  ? "bg-brand-accent text-brand-dark border-brand-accent font-medium" 
+                  ? "font-medium" 
                   : "bg-transparent text-text-secondary border-white/20 hover:border-white/40 hover:bg-white/5"
               )}
+              style={selectedLanguage === lang ? { 
+                backgroundColor: '#F8E441', 
+                borderColor: '#F8E441',
+                color: '#191919' 
+              } : undefined}
               onClick={(e) => {
                 e.stopPropagation();
                 setSelectedLanguage(lang);
