@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useCallback } from "react";
-import { Card, Button, Divider } from "@blueprintjs/core";
 import Image from "next/image";
+import * as Separator from "@radix-ui/react-separator"; 
+import { cn, buttonVariants, cardVariants } from "@/lib/utils";
 
 // ===============================
 // Data
@@ -180,39 +181,53 @@ const ResearchCard: React.FC<ResearchCardProps> = ({
   }, [title, pdfUrl, languageOptions]);
 
   return (
-    <Card className="research-card">
-      <div className="clickable-card-area" onClick={handlePdfClick}>
-        <h3 className="card-title">{title}</h3>
-        <Divider />
-        <div className="card-content">
-          <div className="card-description-container">
-            <p className="card-description">{description}</p>
-            <p className="bp4-text-small">
-              <span className="bp4-text-muted">Published: </span>{date}
+    <div className={cn(cardVariants({ variant: "interactive" }), "w-80 h-auto flex flex-col justify-between p-4 relative")}>
+      <div 
+        className="cursor-pointer transition-all duration-300 relative rounded"
+        onClick={handlePdfClick}
+      >
+        <h3 className="text-lg font-bold mb-2 truncate">{title}</h3>
+        <Separator.Root className="border-b border-card-border my-2" />
+        <div className="flex-1 flex flex-col justify-between">
+          <div className="flex flex-col text-left">
+            <p className="text-sm text-left my-0 mb-2 overflow-hidden text-ellipsis line-clamp-4 max-h-20">
+              {description}
+            </p>
+            <p className="text-xs text-text-placeholder m-0">
+              <span className="text-text-placeholder">Published: </span>{date}
             </p>
           </div>
         </div>
+        {/* Arrow indicator */}
+        <div className="absolute bottom-2 right-2 text-text-secondary text-lg transition-all duration-300 group-hover:text-brand-secondary group-hover:translate-x-1">
+          →
+        </div>
       </div>
-      <Divider />
-      <div className="action-buttons">
+      
+      <Separator.Root className="border-b border-card-border my-2" />
+      
+      <div className="flex justify-center items-center mt-4 relative">
         {languageOptions && typeof pdfUrl === 'object' && (
-          <div className="button-group">
+          <div className="flex gap-2 z-10 relative">
             {Object.keys(pdfUrl).map((lang) => (
-              <Button
+              <button
                 key={lang}
-                className={`secondary ${languageOptions.current === lang ? "active" : ""}`}
+                className={cn(
+                  buttonVariants({ variant: "secondary", size: "sm" }),
+                  languageOptions.current === lang && "bg-brand-secondary text-white border-brand-secondary shadow-md"
+                )}
                 onClick={(e) => {
                   e.stopPropagation();
                   setLanguage?.(lang);
                 }}
               >
                 {lang}
-              </Button>
+              </button>
             ))}
           </div>
         )}
       </div>
-    </Card>
+    </div>
   );
 };
 
@@ -226,10 +241,12 @@ const ReportsSection: React.FC = () => {
   });
 
   return (
-    <div className="reports-section">
-      <h1>Research Reports</h1>
-      <p>Explore our latest research and insights on DAOs and decentralized governance.</p>
-      <div className="research-card-outlay">
+    <section className="w-full mt-10">
+      <h1 className="text-section leading-10 font-normal text-center mb-4">Research Reports</h1>
+      <p className="text-xl leading-8 text-center mb-8 text-text-primary">
+        Explore our latest research and insights on DAOs and decentralized governance.
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mt-5">
         {sortedPapers.map((paper, index) => (
           <ResearchCard
             key={index}
@@ -254,7 +271,7 @@ const ReportsSection: React.FC = () => {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
@@ -286,42 +303,46 @@ const ProgramCard: React.FC<ProgramCardProps> = ({
   }, [buttonLink, disabled]);
 
   return (
-    <Card className="research-card program-card">
-      <h3 className="card-title">{title}</h3>
-      <Divider />
-      <div className="card-content">
-        <div className="card-description-container">
-          <p className="card-description">{description}</p>
-          <ul className="program-bullet-points">
+    <div className={cn(cardVariants(), "h-full flex flex-col p-4")}>
+      <h3 className="text-lg font-bold mb-2 truncate">{title}</h3>
+      <Separator.Root className="border-b border-card-border my-2" />
+      <div className="flex-1 flex flex-col justify-between">
+        <div className="flex flex-col text-left">
+          <p className="text-sm text-left my-0 mb-2">{description}</p>
+          <ul className="list-disc pl-5 my-3">
             {bulletPoints.map((point, index) => (
-              <li key={index}>{point}</li>
+              <li key={index} className="text-sm mb-2 leading-tight">{point}</li>
             ))}
           </ul>
         </div>
       </div>
-      <Divider />
-      <div className="action-buttons">
+      <Separator.Root className="border-b border-card-border my-2" />
+      <div className="flex justify-center items-center mt-4">
         {disabled ? (
-          <div className="coming-soon-text">Coming Soon</div>
+          <div className="text-base font-medium text-gray-500 text-center py-2 px-4">
+            Coming Soon
+          </div>
         ) : (
-          <Button
-            className="primary view-pdf-btn"
+          <button
+            className={cn(buttonVariants({ variant: "default" }), "py-2 px-4")}
             onClick={handleButtonClick}
           >
             {buttonText}
-          </Button>
+          </button>
         )}
       </div>
-    </Card>
+    </div>
   );
 };
 
 const ProgramsSection: React.FC = () => {
   return (
-    <div className="programs-section">
-      <h1>Research Programs</h1>
-      <p>Join our research community and contribute to the advancement of DAO knowledge and practices.</p>
-      <div className="research-card-outlay">
+    <section className="w-full mt-10">
+      <h1 className="text-section leading-10 font-normal text-center mb-4">Research Programs</h1>
+      <p className="text-xl leading-8 text-center mb-8 text-text-primary">
+        Join our research community and contribute to the advancement of DAO knowledge and practices.
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mt-5">
         {researchPrograms.map((program, index) => (
           <ProgramCard
             key={index}
@@ -334,7 +355,7 @@ const ProgramsSection: React.FC = () => {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
@@ -356,13 +377,13 @@ const SeasonDescription: React.FC<SeasonDescriptionProps> = ({
   description 
 }) => {
   return (
-    <div className="season-description">
-      <h3 className="season-title">{season}</h3>
-      <div className="season-info">
-        <p className="season-date">{dateRange}</p>
-        <p className="season-theme">{theme}</p>
+    <div className="mb-6">
+      <h3 className="text-xl leading-8 font-medium uppercase my-2 text-left">{season}</h3>
+      <div className="flex mb-3">
+        <p className="text-base font-medium m-0 mr-4">{dateRange}</p>
+        <p className="text-base font-medium m-0 text-text-primary">{theme}</p>
       </div>
-      <p className="season-description-text">{description}</p>
+      <p className="text-sm leading-6 my-0 mb-4 text-text-primary max-w-[90%]">{description}</p>
     </div>
   );
 };
@@ -374,12 +395,12 @@ interface FellowCardProps {
 
 const FellowCard: React.FC<FellowCardProps> = ({ name, imagePath }) => {
   return (
-    <Card className="fellow-card">
-      <div className="fellow-image-container">
+    <div className="flex flex-col items-center p-4 bg-white/5 rounded-lg transition-transform duration-200 hover:-translate-y-1">
+      <div className="w-40 h-40 rounded-full overflow-hidden mb-4 bg-white/10 flex items-center justify-center">
         <Image 
           src={imagePath} 
           alt={`${name}`} 
-          className="fellow-image"
+          className="w-full h-full object-cover"
           width={160}
           height={160}
           onError={(e) => {
@@ -387,21 +408,23 @@ const FellowCard: React.FC<FellowCardProps> = ({ name, imagePath }) => {
             target.onerror = null;
             target.style.display = "none";
             const parent = target.parentNode as HTMLElement;
-            parent.classList.add("fellow-image-fallback");
+            parent.classList.add("text-4xl", "font-bold", "text-white/50");
             parent.innerText = name.split(' ').map(n => n[0]).join('');
           }}
         />
       </div>
-      <h3 className="fellow-name">{name}</h3>
-    </Card>
+      <h3 className="text-base font-medium text-center m-0">{name}</h3>
+    </div>
   );
 };
 
 const FellowsSection: React.FC = () => {
   return (
-    <div className="fellows-section">
-      <h1>Our Researchers</h1>
-      <p>Meet our talented Researchers who are driving innovation in DAO governance and decentralized systems.</p>
+    <section className="w-full mt-10">
+      <h1 className="text-section leading-10 font-normal text-center mb-4">Our Researchers</h1>
+      <p className="text-xl leading-8 text-center mb-8 text-text-primary">
+        Meet our talented Researchers who are driving innovation in DAO governance and decentralized systems.
+      </p>
 
       <SeasonDescription 
         season="DAOstar Fellowship Season 1"
@@ -409,7 +432,7 @@ const FellowsSection: React.FC = () => {
         theme="DAO Governance and Social Dynamics"
         description="This fellowship supported a cohort of researchers exploring the evolving nature of DAOs — from token unlock mechanisms and contributor stratification to legal recognition and regional DAO developments. The program highlighted DAOs as social, legal, and economic experiments, with fellows contributing original research to inform the future of digital governance."
       />
-      <div className="fellows-grid">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
         {season1Fellows.map((fellow, index) => (
           <FellowCard 
             key={index}
@@ -425,7 +448,7 @@ const FellowsSection: React.FC = () => {
         theme="The State of DAOs in Asia"
         description="This inaugural research fellowship focused on understanding the unique cultural, regulatory, and social dynamics shaping DAO ecosystems across Asia. The series featured region-specific reports authored by local experts and aimed to deepen global insight into decentralized governance in countries like Japan, Singapore, Taiwan, and Korea."
       />
-      <div className="fellows-grid">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
         {season0Fellows.map((fellow, index) => (
           <FellowCard 
             key={index}
@@ -434,7 +457,7 @@ const FellowsSection: React.FC = () => {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
@@ -444,12 +467,16 @@ const FellowsSection: React.FC = () => {
 
 export default function Research() {
   return (
-    <>
+    <div className="mx-auto max-w-4xl px-5 py-12">
       <ReportsSection />
-      <Divider className="section-divider" />
+      <div className="my-10 border-b border-white/20 w-full relative">
+        <div className="absolute bottom-[-1px] left-1/2 transform -translate-x-1/2 w-15 h-0.5 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></div>
+      </div>
       <ProgramsSection />
-      <Divider className="section-divider" />
+      <div className="my-10 border-b border-white/20 w-full relative">
+        <div className="absolute bottom-[-1px] left-1/2 transform -translate-x-1/2 w-15 h-0.5 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></div>
+      </div>
       <FellowsSection />
-    </>
+    </div>
   );
 }

@@ -41,9 +41,7 @@ export default function RootLayout({
       >
         <HandImage />
         <TopNavigation />
-        <div className="page-wrapper">
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );

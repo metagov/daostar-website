@@ -1,64 +1,89 @@
 "use client";
 
 import React from "react";
-import { Popover, Menu, MenuItem, Button } from "@blueprintjs/core";
-import { ChevronDown } from "@blueprintjs/icons";
 import Image from "next/image";
+import Link from "next/link";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { ChevronDownIcon } from "@radix-ui/react-icons";
+import { cn } from "@/lib/utils";
 
 const TopNavigation: React.FC = () => {
-
-  const standardsMenu = (
-    <Menu>
-      <MenuItem 
-        text="DAO ID" 
-        onClick={() => window.location.href = "/daoid"}
-      />
-      <MenuItem 
-        text="OpenGrants" 
-        onClick={() => window.location.href = "/opengrants"}
-      />
-    </Menu>
-  );
-
   return (
-    <nav className="top-navigation">
-      <div className="nav-container">
-        <div className="nav-logo" onClick={() => window.location.href = "/"}>
+    <nav className="fixed top-0 left-0 right-0 bg-transparent z-[1000] py-4">
+      <div className="w-full px-5 flex justify-between items-center">
+        <Link 
+          href="/"
+          className="flex items-center transition-opacity hover:opacity-80"
+        >
           <Image 
             src="/img/logo_dao.png" 
             alt="DAOstar Logo" 
             width={80}
             height={28}
-            className="logo-image"
+            className="h-6 w-auto"
           />
-        </div>
+        </Link>
         
-        <div className="nav-menu">
-          <div className="nav-item dropdown-item">
-            <Popover
-              content={standardsMenu}
-              position="bottom"
-              interactionKind="hover"
-              hoverOpenDelay={0}
-              hoverCloseDelay={300}
-            >
-              <Button 
-                className="nav-button"
-                text="Standards"
-                rightIcon={<ChevronDown />}
-                minimal
-              />
-            </Popover>
-          </div>
+        <div className="flex items-center gap-6">
+          <DropdownMenu.Root>
+            <DropdownMenu.Trigger asChild>
+              <button className={cn(
+                "flex items-center px-4 py-2 text-text-primary bg-transparent border-none text-base font-medium",
+                "transition-all duration-200 hover:text-brand-accent hover:bg-brand-accent/10",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30"
+              )}>
+                Standards
+                <ChevronDownIcon className="ml-1 h-4 w-4" />
+              </button>
+            </DropdownMenu.Trigger>
+            
+            <DropdownMenu.Portal>
+              <DropdownMenu.Content 
+                className={cn(
+                  "min-w-[180px] bg-card-bg border border-card-border rounded-md shadow-xl",
+                  "animate-slide-up z-50 mt-1"
+                )}
+                align="start"
+                sideOffset={4}
+              >
+                <DropdownMenu.Item asChild>
+                  <Link 
+                    href="/daoid"
+                    className={cn(
+                      "block px-5 py-3 text-text-primary text-sm cursor-pointer min-h-[36px] flex items-center",
+                      "transition-all duration-200 hover:bg-brand-accent/10 hover:text-brand-accent",
+                      "focus-visible:outline-none focus-visible:bg-brand-accent/10 focus-visible:text-brand-accent"
+                    )}
+                  >
+                    DAO ID
+                  </Link>
+                </DropdownMenu.Item>
+                <DropdownMenu.Item asChild>
+                  <Link 
+                    href="/opengrants"
+                    className={cn(
+                      "block px-5 py-3 text-text-primary text-sm cursor-pointer min-h-[36px] flex items-center",
+                      "transition-all duration-200 hover:bg-brand-accent/10 hover:text-brand-accent",
+                      "focus-visible:outline-none focus-visible:bg-brand-accent/10 focus-visible:text-brand-accent"
+                    )}
+                  >
+                    OpenGrants
+                  </Link>
+                </DropdownMenu.Item>
+              </DropdownMenu.Content>
+            </DropdownMenu.Portal>
+          </DropdownMenu.Root>
           
-          <div className="nav-item">
-            <Button 
-              className="nav-button"
-              text="Research"
-              minimal
-              onClick={() => window.location.href = "/research"}
-            />
-          </div>
+          <Link 
+            href="/research"
+            className={cn(
+              "px-4 py-2 text-text-primary bg-transparent text-base font-medium",
+              "transition-all duration-200 hover:text-brand-accent hover:bg-brand-accent/10",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30 rounded"
+            )}
+          >
+            Research
+          </Link>
         </div>
       </div>
     </nav>

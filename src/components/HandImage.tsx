@@ -12,13 +12,13 @@ export default function HandImage() {
   }
 
   return (
-    <div className="hand-container">
+    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 z-[999] pointer-events-none">
       <Image
         src="/img/hand_final.png"
         alt="Hand holding digital sphere"
         width={600}
         height={600}
-        className="hand-image"
+        className="w-auto h-auto max-w-[500px] max-h-[500px] sm:max-w-[500px] sm:max-h-[500px] md:max-w-[500px] md:max-h-[500px] lg:max-w-[500px] lg:max-h-[500px] xl:max-w-[500px] xl:max-h-[500px] drop-shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
         priority
       />
     </div>
