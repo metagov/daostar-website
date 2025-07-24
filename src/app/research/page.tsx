@@ -158,7 +158,7 @@ const ResearchCard: React.FC<ResearchCardProps> = ({
   }, [title, pdfUrl, selectedLanguage]);
 
   return (
-    <div className="flex flex-col p-4 bg-white/20 rounded-lg transition-all duration-200 hover:-translate-y-1 hover:bg-white/25 cursor-pointer w-full h-auto border border-white/10 hover:border-white/20">
+    <div className="flex flex-col p-4 bg-surface rounded-lg transition-all duration-200 hover:-translate-y-1 hover:bg-surface-hover cursor-pointer w-full h-auto border border-border hover:border-border-hover">
       <div 
         className="cursor-pointer flex-1 flex flex-col"
         onClick={handlePdfClick}
@@ -167,8 +167,8 @@ const ResearchCard: React.FC<ResearchCardProps> = ({
         <p className="text-sm text-text-secondary text-center mb-3 leading-relaxed flex-1">
           {description}
         </p>
-        <p className="text-xs text-text-placeholder text-center mb-4">
-          <span className="text-text-placeholder">Published: </span>{date}
+        <p className="text-xs text-text-muted text-center mb-4">
+          <span className="text-text-muted">Published: </span>{date}
         </p>
       </div>
       {typeof pdfUrl === 'object' && (
@@ -179,14 +179,9 @@ const ResearchCard: React.FC<ResearchCardProps> = ({
               className={cn(
                 "px-3 py-1 text-xs rounded-md border transition-all duration-200",
                 selectedLanguage === lang 
-                  ? "font-medium" 
-                  : "bg-transparent text-text-secondary border-white/20 hover:border-white/40 hover:bg-white/5"
+                  ? "bg-brand-accent text-brand-dark border-brand-accent font-medium" 
+                  : "bg-transparent text-text-secondary border-border hover:border-border-hover hover:bg-surface/30"
               )}
-              style={selectedLanguage === lang ? { 
-                backgroundColor: '#F8E441', 
-                borderColor: '#F8E441',
-                color: '#191919' 
-              } : undefined}
               onClick={(e) => {
                 e.stopPropagation();
                 setSelectedLanguage(lang);
@@ -256,7 +251,7 @@ const ProgramCard: React.FC<ProgramCardProps> = ({
   }, [buttonLink, disabled]);
 
   return (
-    <div className="flex flex-col p-4 bg-white/20 rounded-lg transition-all duration-200 hover:-translate-y-1 hover:bg-white/25 h-full border border-white/10 hover:border-white/20">
+    <div className="flex flex-col p-4 bg-surface rounded-lg transition-all duration-200 hover:-translate-y-1 hover:bg-surface-hover h-full border border-border hover:border-border-hover">
       <h3 className="text-lg font-medium mb-3 text-center">{title}</h3>
       <div className="flex-1 flex flex-col">
         <p className="text-sm text-text-secondary text-center mb-4 leading-relaxed">{description}</p>
@@ -268,7 +263,7 @@ const ProgramCard: React.FC<ProgramCardProps> = ({
       </div>
       <div className="flex justify-center items-center">
         {disabled ? (
-          <div className="text-sm font-medium text-text-placeholder text-center py-2 px-4">
+          <div className="text-sm font-medium text-text-muted text-center py-2 px-4">
             Coming Soon
           </div>
         ) : (
@@ -330,15 +325,15 @@ const ContributorSection: React.FC = () => {
         <div className="mb-8">
           <h2 className="text-xl font-medium mb-4 text-brand-accent">What You&apos;ll Get</h2>
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-white/10 p-4 rounded-lg">
+            <div className="bg-surface p-4 rounded-lg border border-border">
               <h3 className="font-medium text-text-primary mb-2">Platform for Impact</h3>
               <p className="text-text-secondary text-sm leading-relaxed">Your research will contribute to advancing thought leadership on DAOs, shaping the future of decentralized governance.</p>
             </div>
-            <div className="bg-white/10 p-4 rounded-lg">
+            <div className="bg-surface p-4 rounded-lg border border-border">
               <h3 className="font-medium text-text-primary mb-2">Supportive Community</h3>
               <p className="text-text-secondary text-sm leading-relaxed">Join a network of peers, researchers, and DAO professionals eager to collaborate and support your work.</p>
             </div>
-            <div className="bg-white/10 p-4 rounded-lg">
+            <div className="bg-surface p-4 rounded-lg border border-border">
               <h3 className="font-medium text-text-primary mb-2">Professional Growth</h3>
               <p className="text-text-secondary text-sm leading-relaxed">Hone your research, writing, and communication skills while working on meaningful, real-world topics.</p>
             </div>
@@ -352,7 +347,7 @@ const ContributorSection: React.FC = () => {
             Ready to contribute to the future of DAOs? We review submissions within 2-3 weeks and provide feedback to help you succeed.
           </p>
           <button
-            className="px-6 py-3 bg-brand-accent text-brand-dark font-medium rounded-lg border-2 border-brand-accent transition-all duration-200 hover:bg-brand-accent/90 hover:border-brand-accent/90 hover:shadow-lg hover:scale-105 cursor-pointer"
+            className="px-6 py-3 bg-transparent text-text-primary font-medium rounded-lg border border-brand-accent transition-all duration-200 hover:bg-brand-accent/10 hover:text-brand-accent hover:shadow-lg hover:-translate-y-1 cursor-pointer"
             onClick={() => window.open("https://forms.gle/cLZXbWKkufRKJEMX7", "_blank")}
           >
             Submit Contributor Application →
@@ -399,8 +394,8 @@ interface FellowCardProps {
 
 const FellowCard: React.FC<FellowCardProps> = ({ name, imagePath }) => {
   return (
-    <div className="flex flex-col items-center p-4 bg-white/5 rounded-lg transition-transform duration-200 hover:-translate-y-1">
-      <div className="w-40 h-40 rounded-full overflow-hidden mb-4 bg-white/10 flex items-center justify-center">
+    <div className="flex flex-col items-center p-4 bg-surface/50 rounded-lg border border-border/50 transition-all duration-200 hover:-translate-y-1 hover:bg-surface hover:border-border">
+      <div className="w-40 h-40 rounded-full overflow-hidden mb-4 bg-surface border border-border flex items-center justify-center">
         <Image 
           src={imagePath} 
           alt={`${name}`} 

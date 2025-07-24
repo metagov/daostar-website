@@ -71,8 +71,8 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "inline-flex items-center px-6 py-3 bg-brand-accent text-white font-medium rounded-lg",
-                "transition-all duration-300 hover:bg-brand-accent/90 hover:shadow-lg hover:-translate-y-1",
+                "inline-flex items-center px-6 py-3 bg-transparent text-text-primary font-medium rounded-lg border border-brand-accent",
+                "transition-all duration-300 hover:bg-brand-accent/10 hover:text-brand-accent hover:shadow-lg hover:-translate-y-1",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30"
               )}
             >
@@ -86,7 +86,7 @@ export default function Home() {
       <section className="relative z-[2] max-w-4xl mx-auto px-16 py-8">
         <div className={cn(
           "bg-white/5 p-12 rounded-lg backdrop-blur-sm border border-white/10 text-center",
-          "transition-all duration-300 hover:bg-white/10 hover:border-brand-accent"
+          "transition-all duration-300 hover:bg-white/10"
         )}>
           <h2 className="text-3xl mb-6 text-text-primary font-heading font-light">
             Standards
@@ -98,8 +98,8 @@ export default function Home() {
             <Link 
               href="/daoid"
               className={cn(
-                "inline-flex items-center px-6 py-3 bg-brand-accent text-white font-medium rounded-lg",
-                "transition-all duration-300 hover:bg-brand-accent/90 hover:shadow-lg hover:-translate-y-1",
+                "inline-flex items-center px-6 py-3 bg-transparent text-text-primary font-medium rounded-lg",
+                "transition-all duration-300 hover:bg-brand-accent/10 hover:text-brand-accent hover:shadow-lg hover:-translate-y-1",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30"
               )}
             >
@@ -108,8 +108,8 @@ export default function Home() {
             <Link 
               href="/opengrants"
               className={cn(
-                "inline-flex items-center px-6 py-3 bg-brand-accent text-white font-medium rounded-lg",
-                "transition-all duration-300 hover:bg-brand-accent/90 hover:shadow-lg hover:-translate-y-1",
+                "inline-flex items-center px-6 py-3 bg-transparent text-text-primary font-medium rounded-lg",
+                "transition-all duration-300 hover:bg-brand-accent/10 hover:text-brand-accent hover:shadow-lg hover:-translate-y-1",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30"
               )}
             >
@@ -123,7 +123,7 @@ export default function Home() {
       <section className="relative z-[2] max-w-4xl mx-auto px-16 py-8">
         <div className={cn(
           "bg-white/5 p-12 rounded-lg backdrop-blur-sm border border-white/10 text-center",
-          "transition-all duration-300 hover:bg-white/10 hover:border-brand-accent"
+          "transition-all duration-300 hover:bg-white/10"
         )}>
           <h2 className="text-3xl mb-6 text-text-primary font-heading font-light">
             Research
@@ -134,8 +134,8 @@ export default function Home() {
           <Link 
             href="/research"
             className={cn(
-              "inline-flex items-center px-6 py-3 bg-brand-accent text-white font-medium rounded-lg",
-              "transition-all duration-300 hover:bg-brand-accent/90 hover:shadow-lg hover:-translate-y-1",
+              "inline-flex items-center px-6 py-3 bg-transparent text-text-primary font-medium rounded-lg border-brand-accent",
+              "transition-all duration-300 hover:bg-brand-accent/10 hover:text-brand-accent hover:shadow-lg hover:-translate-y-1",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30"
             )}
           >
@@ -148,7 +148,7 @@ export default function Home() {
       <section className="relative z-[2] max-w-4xl mx-auto px-16 py-8">
         <div className={cn(
           "bg-white/5 p-12 rounded-lg backdrop-blur-sm border border-white/10 text-center",
-          "transition-all duration-300 hover:bg-white/10 hover:border-brand-accent"
+          "transition-all duration-300 hover:bg-white/10"
         )}>
           <h2 className="text-3xl mb-6 text-text-primary font-heading font-light">
             Public Goods
@@ -162,8 +162,8 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "inline-flex items-center px-6 py-3 bg-brand-accent text-white font-medium rounded-lg",
-                "transition-all duration-300 hover:bg-brand-accent/90 hover:shadow-lg hover:-translate-y-1",
+                "inline-flex items-center px-6 py-3 bg-transparent text-text-primary font-medium rounded-lg",
+                "transition-all duration-300 hover:bg-brand-accent/10 hover:text-brand-accent hover:shadow-lg hover:-translate-y-1",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30"
               )}
             >
@@ -174,8 +174,8 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "inline-flex items-center px-6 py-3 bg-brand-accent text-white font-medium rounded-lg",
-                "transition-all duration-300 hover:bg-brand-accent/90 hover:shadow-lg hover:-translate-y-1",
+                "inline-flex items-center px-6 py-3 bg-transparent text-text-primary font-medium rounded-lg",
+                "transition-all duration-300 hover:bg-brand-accent/10 hover:text-brand-accent hover:shadow-lg hover:-translate-y-1",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30"
               )}
             >
@@ -202,8 +202,8 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "inline-flex items-center px-6 py-3 bg-brand-accent text-white font-medium rounded-lg mb-8",
-              "transition-all duration-300 hover:bg-brand-accent/90 hover:shadow-lg hover:-translate-y-1",
+              "inline-flex items-center px-6 py-3 bg-transparent text-text-primary font-medium rounded-lg border-2 border-brand-accent mb-8",
+              "transition-all duration-300 hover:bg-brand-accent/10 hover:text-brand-accent hover:shadow-lg hover:-translate-y-1",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30"
             )}
           >
