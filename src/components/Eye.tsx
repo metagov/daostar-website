@@ -139,9 +139,9 @@ const Eye: React.FC<EyeProps> = ({
   size = 'md'
 }) => {
   const sizeClasses = {
-    sm: 'w-64 h-64',
-    md: 'w-96 h-96', 
-    lg: 'w-[32rem] h-[32rem]'
+    sm: 'w-64 h-64 aspect-square',
+    md: 'w-96 h-96 aspect-square', 
+    lg: 'w-[32rem] h-[32rem] aspect-square'
   };
 
   // Track global mouse movement
