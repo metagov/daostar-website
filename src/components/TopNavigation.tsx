@@ -75,6 +75,17 @@ const TopNavigation: React.FC = () => {
           </DropdownMenu.Root>
           
           <Link 
+            href="/about"
+            className={cn(
+              "px-4 py-2 text-text-primary bg-transparent text-base font-medium",
+              "transition-all duration-200 hover:text-brand-accent hover:bg-brand-accent/10",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30 rounded"
+            )}
+          >
+            About
+          </Link>
+          
+          <Link 
             href="/research"
             className={cn(
               "px-4 py-2 text-text-primary bg-transparent text-base font-medium",
