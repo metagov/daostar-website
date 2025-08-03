@@ -235,54 +235,132 @@ export default function DaoId() {
 
 
       {/* EIP-4824 Section */}
-      <section className="relative z-[2] max-w-4xl mx-auto px-8 md:px-16 py-16">
-        <div className={cn(
-          "bg-white/5 p-12 rounded-lg backdrop-blur-sm border border-white/10 text-center",
-          "transition-all duration-300 hover:bg-white/10"
-        )}>
-          <h2 className="text-3xl mb-6 text-text-primary font-heading font-light">
-            EIP-4824: DAOstar's Implementation of DAO ID
-          </h2>
-          <p className="text-lg text-text-secondary font-light mb-8 max-w-3xl mx-auto leading-relaxed">
-            EIP-4824 is DAOstar's specific implementation of the DAO ID concept. This standard defines a common interface for DAOs, akin to tokenURI for NFTs, so that DAOs of all shapes and sizes are easier to discover, more legible to their members, and more compatible with future tooling. Many DAOs already publish their data in various ways. We've standardized these existing best-practices, making it easy for people to create and maintain new DAOs and DAO tooling.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="https://daostar.org/explore"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                "inline-flex items-center px-6 py-3 bg-transparent text-text-primary font-medium rounded-lg border border-brand-accent",
-                "transition-all duration-300 hover:bg-brand-accent/10 hover:text-brand-accent hover:shadow-lg hover:-translate-y-1",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30"
-              )}
-            >
-              Explore DAOs →
-            </Link>
-            <Link 
-              href="https://daostar.org/register"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                "inline-flex items-center px-6 py-3 bg-transparent text-text-primary font-medium rounded-lg border border-brand-accent",
-                "transition-all duration-300 hover:bg-brand-accent/10 hover:text-brand-accent hover:shadow-lg hover:-translate-y-1",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30"
-              )}
-            >
-              Register Your DAO →
-            </Link>
-            <Link 
-              href="https://eips.ethereum.org/EIPS/eip-4824"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                "inline-flex items-center px-6 py-3 bg-transparent text-text-primary font-medium rounded-lg border border-brand-accent",
-                "transition-all duration-300 hover:bg-brand-accent/10 hover:text-brand-accent hover:shadow-lg hover:-translate-y-1",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30"
-              )}
-            >
-              EIP-4824 Standard →
-            </Link>
+      <section className="relative z-[2] max-w-6xl mx-auto px-8 md:px-16 py-20">
+        <div className="space-y-12">
+          <div className="text-center">
+            <h2 className="text-3xl md:text-4xl font-light text-text-primary font-heading leading-tight mb-6">
+              EIP-4824: A Standard for DAO Identity
+            </h2>
+            <p className="text-lg text-text-secondary max-w-4xl mx-auto leading-relaxed">
+              EIP-4824 is a standard that defines a common interface for DAOs via daoURI, similar to tokenURI for NFTs. 
+              This standard enhances DAO discoverability, legibility, and interoperability between tools.
+            </p>
+          </div>
+
+          {/* Features and Adoption */}
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h3 className="text-2xl font-semibold text-text-primary">Making DAOs Discoverable</h3>
+              <div className="space-y-4 text-text-secondary leading-relaxed">
+                <p>
+                  EIP-4824 provides a standardized way for DAOs to publish metadata about their governance structure, 
+                  membership, proposals, and activities. Just as tokenURI makes NFTs legible to applications, 
+                  daoURI makes DAOs compatible with tooling and services.
+                </p>
+                <p>
+                  The standard was developed through DAOstar One roundtables with representatives from major 
+                  DAO frameworks including Aragon, Compound, and others, ensuring broad ecosystem compatibility.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h4 className="text-lg font-medium text-text-primary">Standard Components:</h4>
+                <div className="space-y-2">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-brand-accent rounded-full"></div>
+                    <span className="text-sm text-text-secondary">Members URI - standardized membership data</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-brand-accent rounded-full"></div>
+                    <span className="text-sm text-text-secondary">Proposals URI - governance proposal information</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-brand-accent rounded-full"></div>
+                    <span className="text-sm text-text-secondary">Activity Log URI - organizational activity records</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-brand-accent rounded-full"></div>
+                    <span className="text-sm text-text-secondary">Governance URI - constitutional documents</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className={cn(
+              "p-8 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10",
+              "transition-all duration-300 hover:bg-white/10"
+            )}>
+              <h3 className="text-xl font-semibold text-text-primary mb-6 text-center">Widespread Adoption</h3>
+              <div className="space-y-6">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-brand-accent mb-2">200+</div>
+                  <p className="text-sm text-text-secondary">DAOs have adopted EIP-4824</p>
+                </div>
+                
+                <div>
+                  <p className="text-sm text-text-secondary text-center mb-4">Examples include:</p>
+                  <div className="space-y-2 text-sm text-text-secondary">
+                    <div className="flex items-center justify-center p-2 bg-brand-accent/10 rounded-lg">
+                      <span>Snapshot</span>
+                    </div>
+                    <div className="flex items-center justify-center p-2 bg-brand-accent/10 rounded-lg">
+                      <span>Aragon</span>
+                    </div>
+                    <div className="flex items-center justify-center p-2 bg-brand-accent/10 rounded-lg">
+                      <span>Optimism Collective</span>
+                    </div>
+                    <div className="flex items-center justify-center p-2 bg-brand-accent/10 rounded-lg">
+                      <span>1inch DAO</span>
+                    </div>
+                    <div className="flex items-center justify-center p-2 bg-brand-accent/10 rounded-lg">
+                      <span>Treasure DAO</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-3xl mx-auto">
+              <Link 
+                href="https://daostar.org/register"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "inline-flex items-center justify-center px-8 py-4 bg-brand-accent text-black font-medium rounded-lg",
+                  "transition-all duration-300 hover:bg-brand-accent/90 hover:shadow-lg hover:-translate-y-1",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30"
+                )}
+              >
+                Register Your DAO →
+              </Link>
+              <Link 
+                href="https://daostar.org/explore"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "inline-flex items-center justify-center px-8 py-4 bg-transparent text-text-primary font-medium rounded-lg border border-brand-accent",
+                  "transition-all duration-300 hover:bg-brand-accent/10 hover:text-brand-accent hover:shadow-lg hover:-translate-y-1",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30"
+                )}
+              >
+                Explore EIP-4824 DAOs →
+              </Link>
+              <Link 
+                href="https://eips.ethereum.org/EIPS/eip-4824"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "inline-flex items-center justify-center px-8 py-4 bg-transparent text-text-primary font-medium rounded-lg border border-brand-accent",
+                  "transition-all duration-300 hover:bg-brand-accent/10 hover:text-brand-accent hover:shadow-lg hover:-translate-y-1",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30"
+                )}
+              >
+                Read the Standard →
+              </Link>
+            </div>
           </div>
         </div>
       </section>
