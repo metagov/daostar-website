@@ -158,7 +158,7 @@ const ResearchCard: React.FC<ResearchCardProps> = ({
   }, [title, pdfUrl, selectedLanguage]);
 
   return (
-    <div className="flex flex-col p-4 bg-surface rounded-lg transition-all duration-200 hover:-translate-y-1 hover:bg-surface-hover cursor-pointer w-full h-auto border border-border hover:border-border-hover">
+    <div className="flex flex-col p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg transition-all duration-200 hover:-translate-y-1 hover:bg-white/10 cursor-pointer w-full h-auto">
       <div 
         className="cursor-pointer flex-1 flex flex-col"
         onClick={handlePdfClick}
@@ -180,7 +180,7 @@ const ResearchCard: React.FC<ResearchCardProps> = ({
                 "px-3 py-1 text-xs rounded-md border transition-all duration-200",
                 selectedLanguage === lang 
                   ? "bg-brand-accent text-brand-dark border-brand-accent font-medium" 
-                  : "bg-transparent text-text-secondary border-border hover:border-border-hover hover:bg-surface/30"
+                  : "bg-transparent text-text-secondary border-white/10 hover:border-white/20 hover:bg-white/10"
               )}
               onClick={(e) => {
                 e.stopPropagation();
@@ -251,7 +251,7 @@ const ProgramCard: React.FC<ProgramCardProps> = ({
   }, [buttonLink, disabled]);
 
   return (
-    <div className="flex flex-col p-4 bg-surface rounded-lg transition-all duration-200 hover:-translate-y-1 hover:bg-surface-hover h-full border border-border hover:border-border-hover">
+    <div className="flex flex-col p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg transition-all duration-200 hover:-translate-y-1 hover:bg-white/10 h-full">
       <h3 className="text-lg font-medium mb-3 text-center">{title}</h3>
       <div className="flex-1 flex flex-col">
         <p className="text-sm text-text-secondary text-center mb-4 leading-relaxed">{description}</p>
@@ -325,15 +325,15 @@ const ContributorSection: React.FC = () => {
         <div className="mb-8">
           <h2 className="text-xl font-medium mb-4 text-brand-accent">What You&apos;ll Get</h2>
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-surface p-4 rounded-lg border border-border">
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-lg">
               <h3 className="font-medium text-text-primary mb-2">Platform for Impact</h3>
               <p className="text-text-secondary text-sm leading-relaxed">Your research will contribute to advancing thought leadership on DAOs, shaping the future of decentralized governance.</p>
             </div>
-            <div className="bg-surface p-4 rounded-lg border border-border">
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-lg">
               <h3 className="font-medium text-text-primary mb-2">Supportive Community</h3>
               <p className="text-text-secondary text-sm leading-relaxed">Join a network of peers, researchers, and DAO professionals eager to collaborate and support your work.</p>
             </div>
-            <div className="bg-surface p-4 rounded-lg border border-border">
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-lg">
               <h3 className="font-medium text-text-primary mb-2">Professional Growth</h3>
               <p className="text-text-secondary text-sm leading-relaxed">Hone your research, writing, and communication skills while working on meaningful, real-world topics.</p>
             </div>
@@ -394,8 +394,8 @@ interface FellowCardProps {
 
 const FellowCard: React.FC<FellowCardProps> = ({ name, imagePath }) => {
   return (
-    <div className="flex flex-col items-center p-4 bg-surface/50 rounded-lg border border-border/50 transition-all duration-200 hover:-translate-y-1 hover:bg-surface hover:border-border">
-      <div className="w-40 h-40 rounded-full overflow-hidden mb-4 bg-surface border border-border flex items-center justify-center">
+    <div className="flex flex-col items-center p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg transition-all duration-200 hover:-translate-y-1 hover:bg-white/10">
+      <div className="w-40 h-40 rounded-full overflow-hidden mb-4 bg-white/5 border border-white/10 flex items-center justify-center">
         <Image 
           src={imagePath} 
           alt={`${name}`} 
@@ -486,7 +486,7 @@ const FellowsSection: React.FC = () => {
 
 export default function Research() {
   return (
-    <div className="mx-auto max-w-4xl px-5 py-12">
+    <div className="relative z-[2] mx-auto max-w-4xl px-5 py-12">
       <ReportsSection />
       <div className="my-10 border-b border-white/20 w-full relative">
         <div className="absolute bottom-[-1px] left-1/2 transform -translate-x-1/2 w-15 h-0.5 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></div>

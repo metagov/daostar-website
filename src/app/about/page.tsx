@@ -7,17 +7,6 @@ import MemberLogos from "@/components/MemberLogos";
 export default function About() {
   return (
     <div className="relative min-h-screen">
-      {/* Mesh Overlay */}
-      <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-[1] opacity-10">
-        <Image
-          src="/img/mesh.png"
-          alt="Mesh overlay"
-          fill
-          className="object-cover mix-blend-multiply"
-          priority
-        />
-      </div>
-
       <StarWarsCrawl />
 
       {/* History Section */}

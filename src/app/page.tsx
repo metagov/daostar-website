@@ -9,17 +9,6 @@ import { cn } from "@/lib/utils";
 export default function Home() {
   return (
     <div className="relative min-h-screen">
-      {/* Mesh Overlay */}
-      <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-[1] opacity-10">
-        <Image
-          src="/img/mesh.png"
-          alt="Mesh overlay"
-          fill
-          className="object-cover mix-blend-multiply"
-          priority
-        />
-      </div>
-
       {/* Hero Section */}
       <section className="relative z-[2] min-h-[60vh] flex items-center justify-center px-8 md:px-16 max-w-6xl mx-auto pt-72 md:pt-80">
         <div className="flex justify-center items-center w-full">

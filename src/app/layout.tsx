@@ -4,6 +4,7 @@ import "./globals.css";
 import TopNavigation from "@/components/TopNavigation";
 import HandImage from "@/components/HandImage";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Mesh Overlay */}
+        <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-[1] opacity-10">
+          <Image
+            src="/img/mesh.png"
+            alt="Mesh overlay"
+            fill
+            className="object-cover mix-blend-multiply"
+            priority
+          />
+        </div>
+        
         <HandImage />
         <TopNavigation />
         {children}
