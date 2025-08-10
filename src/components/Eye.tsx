@@ -92,9 +92,10 @@ function EyeSphere() {
   // Make the eye look at the global cursor position
   useFrame(() => {
     if (meshRef.current) {
-      // Convert global mouse position to rotation angles (fixed inversion)
-      const targetX = -globalMouse.y * 0.3; // Vertical mouse movement (negated to fix inversion)
-      const targetY = globalMouse.x * 0.3; // Horizontal mouse movement (positive for correct direction)
+      // Convert global mouse position to rotation angles with offset for starting position
+      const baseOffsetY = 0.15; // Starting position offset to look slightly right
+      const targetX = -globalMouse.y * 0.4; // Vertical mouse movement
+      const targetY = globalMouse.x * 0.4 + baseOffsetY; // Horizontal movement + right offset
       
       // Smooth interpolation to target rotation
       targetRotation.current.set(targetX, targetY, 0);
