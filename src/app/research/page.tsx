@@ -90,6 +90,12 @@ const researchPapers: Array<{
     description: "A comprehensive analysis of incentive mechanisms for DAO delegates and their impact on governance.",
     pdfUrl: "/reports/delegate.pdf",
     date: "Feb 2025",
+  },
+  {
+    title: "The Social Dynamics of DAOs",
+    description: "Towards more inclusive and culturally conscious decentralised systems.",
+    pdfUrl: "/reports/social_dynamics.pdf",
+    date: "July 2025",
   }
 ];
 
