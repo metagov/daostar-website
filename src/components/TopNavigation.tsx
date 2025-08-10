@@ -25,7 +25,7 @@ const TopNavigation: React.FC = () => {
         </Link>
         
         <div className="flex items-center gap-6">
-          <DropdownMenu.Root>
+          <DropdownMenu.Root modal={false}>
             <DropdownMenu.Trigger asChild>
               <button className={cn(
                 "flex items-center px-4 py-2 text-text-primary bg-transparent border-none text-base font-medium",
@@ -40,8 +40,8 @@ const TopNavigation: React.FC = () => {
             <DropdownMenu.Portal>
               <DropdownMenu.Content 
                 className={cn(
-                  "min-w-[180px] bg-card-bg border border-card-border rounded-md shadow-xl",
-                  "animate-slide-up z-50 mt-1"
+                  "min-w-[180px] bg-card-bg/95 backdrop-blur-md border border-card-border rounded-md shadow-xl",
+                  "animate-slide-up z-[1001] mt-1"
                 )}
                 align="start"
                 sideOffset={4}
