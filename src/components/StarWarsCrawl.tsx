@@ -11,7 +11,7 @@ const StarWarsCrawl: React.FC<StarWarsCrawlProps> = ({ className }) => {
   return (
     <section 
       className={cn(
-        "relative z-[2] w-full py-12 bg-black flex items-center justify-center overflow-hidden",
+        "relative z-[2] w-full py-12 bg-transparent flex items-center justify-center overflow-hidden",
         className
       )}
     >
