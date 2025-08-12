@@ -325,7 +325,7 @@ export default function DaoId() {
           <div className="text-center">
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-3xl mx-auto">
               <Link 
-                href="https://daostar.org/register"
+                href="https://daoip2.daostar.org/register"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
@@ -337,7 +337,7 @@ export default function DaoId() {
                 Register Your DAO →
               </Link>
               <Link 
-                href="https://daostar.org/explore"
+                href="https://daoip2.daostar.org/explore"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
