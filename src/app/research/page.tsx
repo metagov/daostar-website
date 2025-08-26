@@ -96,6 +96,12 @@ const researchPapers: Array<{
     description: "Towards more inclusive and culturally conscious decentralised systems.",
     pdfUrl: "/research/social_dynamics.pdf",
     date: "July 2025",
+  },
+  {
+    title: "Legally Enforceable Smart Contracts",
+    description: "An exploration of the legal enforceability of smart contracts and their implications for decentralized governance.",
+    pdfUrl: "/research/legally_enforceable_smart_contracts.pdf",
+    date: "Aug 2025",
   }
 ];
 
