@@ -33,7 +33,7 @@ const researchPapers: Array<{
 }> = [
   {
     title: "Delegating Decentralization",
-    description: "An analysis of on-chain governance developments between May '24 and May '25, exploring the professionalization of governance, stakeholder relations reforms, and the unique properties of decentralized political communities.",
+    description: "Exploring the professionalization of governance, stakeholder relations reforms, and the unique properties of decentralized political communities.",
     pdfUrl: "/research/delegating_decentralization.pdf",
     date: "Aug 2025",
   },
