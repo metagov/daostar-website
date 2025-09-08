@@ -32,6 +32,12 @@ const researchPapers: Array<{
   date: string;
 }> = [
   {
+    title: "Delegating Decentralization",
+    description: "An analysis of on-chain governance developments between May '24 and May '25, exploring the professionalization of governance, stakeholder relations reforms, and the unique properties of decentralized political communities.",
+    pdfUrl: "/research/delegating_decentralization.pdf",
+    date: "Aug 2025",
+  },
+  {
     title: "Towards a DAO ID",
     description: "An exploration of extending the daoURI identity model to a more robust model based on daoID.",
     pdfUrl: "/research/daoid.pdf",
