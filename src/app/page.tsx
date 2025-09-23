@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <div className="relative min-h-screen">
       {/* Hero Section */}
-      <section className="relative z-[2] min-h-[60vh] flex items-center justify-center px-8 md:px-16 max-w-6xl mx-auto pt-72 md:pt-80">
+      <section className="relative z-[2] min-h-[60vh] flex items-center justify-center px-4 sm:px-8 md:px-16 max-w-6xl mx-auto pt-72 md:pt-80">
         <div className="flex justify-center items-center w-full">
           <div className="text-center max-w-5xl">
-            <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl leading-none font-light mb-6 text-text-primary font-heading">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-none font-light mb-6 text-text-primary font-heading">
               We support<br />
               <span className="inline">
                 <Typewriter 
@@ -32,8 +32,8 @@ export default function Home() {
       </section>
 
       {/* Eye/Protocols Section */}
-      <section className="relative z-[2] max-w-6xl mx-auto px-8 md:px-16 py-20" id="eye-section">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+      <section className="relative z-[2] max-w-6xl mx-auto px-4 sm:px-8 md:px-16 py-20" id="eye-section">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
           {/* Interactive Eye - Left Side */}
           <div className="flex justify-center items-center min-h-0">
             <div className="w-full max-w-lg aspect-square">
@@ -43,10 +43,10 @@ export default function Home() {
           
           {/* Content - Right Side */}
           <div className="space-y-6">
-            <h2 className="text-2xl md:text-2xl font-light text-text-primary font-heading leading-tight">
+            <h2 className="text-xl md:text-2xl font-light text-text-primary font-heading leading-tight">
               The Protocols Strike Back
             </h2>
-            <div className="space-y-4 text-lg leading-relaxed text-text-secondary">
+            <div className="space-y-4 text-base md:text-lg leading-relaxed text-text-secondary">
               <p>
                 Centralized platforms and fragmented standards are the Death Stars of Web3. 
                 DAOstar is building the open protocols that let scrappy rebel DAOs coordinate, interoperate, and win.
@@ -72,15 +72,15 @@ export default function Home() {
       </section>
 
       {/* Standards Section */}
-      <section className="relative z-[2] max-w-4xl mx-auto px-16 py-8">
+      <section className="relative z-[2] max-w-4xl mx-auto px-4 sm:px-8 md:px-16 py-8">
         <div className={cn(
-          "bg-white/5 p-12 rounded-lg backdrop-blur-sm border border-white/10 text-center",
+          "bg-white/5 p-6 sm:p-8 md:p-12 rounded-lg backdrop-blur-sm border border-white/10 text-center",
           "transition-all duration-300 hover:bg-white/10"
         )}>
-          <h2 className="text-3xl mb-6 text-text-primary font-heading font-light">
+          <h2 className="text-2xl md:text-3xl mb-6 text-text-primary font-heading font-light">
             Standards
           </h2>
-          <p className="text-lg text-text-secondary font-light mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-text-secondary font-light mb-8 max-w-3xl mx-auto leading-relaxed">
             Standards enable collaboration, not competition. DAOstar began as an alliance of all the major players in the DAO ecosystem—from infrastructure providers to governance platforms—coming together to figure out how DAOs can work better together through shared protocols and common language.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -109,15 +109,15 @@ export default function Home() {
       </section>
 
       {/* Research Section */}
-      <section className="relative z-[2] max-w-4xl mx-auto px-16 py-8">
+      <section className="relative z-[2] max-w-4xl mx-auto px-4 sm:px-8 md:px-16 py-8">
         <div className={cn(
-          "bg-white/5 p-12 rounded-lg backdrop-blur-sm border border-white/10 text-center",
+          "bg-white/5 p-6 sm:p-8 md:p-12 rounded-lg backdrop-blur-sm border border-white/10 text-center",
           "transition-all duration-300 hover:bg-white/10"
         )}>
-          <h2 className="text-3xl mb-6 text-text-primary font-heading font-light">
+          <h2 className="text-2xl md:text-3xl mb-6 text-text-primary font-heading font-light">
             Research
           </h2>
-          <p className="text-lg text-text-secondary font-light mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-text-secondary font-light mb-8 max-w-3xl mx-auto leading-relaxed">
             Cutting-edge research on DAO governance, security, and ecosystem development. We investigate the fundamental challenges facing decentralized organizations and publish our findings to advance the entire ecosystem.
           </p>
           <Link 
@@ -134,15 +134,15 @@ export default function Home() {
       </section>
 
       {/* Public Goods Section */}
-      <section className="relative z-[2] max-w-4xl mx-auto px-16 py-8">
+      <section className="relative z-[2] max-w-4xl mx-auto px-4 sm:px-8 md:px-16 py-8">
         <div className={cn(
-          "bg-white/5 p-12 rounded-lg backdrop-blur-sm border border-white/10 text-center",
+          "bg-white/5 p-6 sm:p-8 md:p-12 rounded-lg backdrop-blur-sm border border-white/10 text-center",
           "transition-all duration-300 hover:bg-white/10"
         )}>
-          <h2 className="text-3xl mb-6 text-text-primary font-heading font-light">
+          <h2 className="text-2xl md:text-3xl mb-6 text-text-primary font-heading font-light">
             Public Goods
           </h2>
-          <p className="text-lg text-text-secondary font-light mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-text-secondary font-light mb-8 max-w-3xl mx-auto leading-relaxed">
             We support the broader DAO ecosystem as a public good. By creating open resources, research platforms, and educational initiatives, we strengthen the entire decentralized governance community for everyone&apos;s benefit.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -177,12 +177,12 @@ export default function Home() {
       
 
       {/* Upcoming Events Section */}
-      <section className="relative z-[2] max-w-4xl mx-auto px-16 py-16">
+      <section className="relative z-[2] max-w-4xl mx-auto px-4 sm:px-8 md:px-16 py-16">
         <div className="text-center mb-12">
           <h2 className="text-section text-text-primary font-heading font-light mb-6">
             Upcoming Events
           </h2>
-          <p className="text-lg text-text-secondary font-light max-w-3xl mx-auto leading-relaxed mb-6">
+          <p className="text-sm md:text-base lg:text-lg text-text-secondary font-light max-w-3xl mx-auto leading-relaxed mb-6">
             We regularly host community calls to create a space to zoom out and explore how we can make DAOs work, scale, and matter. 
             Building or researching something cool in DAOs, digital governance, or organizational behavior? We&apos;d love to learn from you.
           </p>
@@ -199,26 +199,27 @@ export default function Home() {
             Apply to Present →
           </Link>
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center w-full">
           <div className={cn(
-            "bg-black/10 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden",
+            "bg-black/10 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden w-full max-w-[600px]",
             "transition-all duration-300 hover:bg-black/20 hover:border-white/10",
             "shadow-2xl shadow-black/20"
           )}>
             <iframe
               src="https://lu.ma/embed/calendar/cal-fo0eYOBKemGE7Y2/events"
-              width="600"
+              width="100%"
               height="450"
               frameBorder="0"
-              style={{ 
-                border: "none", 
+              style={{
+                border: "none",
                 borderRadius: "0px",
-                background: "transparent"
+                background: "transparent",
+                maxWidth: "600px"
               }}
               allowFullScreen
               aria-hidden="false"
               tabIndex={0}
-              className="max-w-full block"
+              className="w-full block"
             />
           </div>
         </div>
