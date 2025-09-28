@@ -35,9 +35,9 @@ export default function Home() {
       <section className="relative z-[2] max-w-6xl mx-auto px-4 sm:px-8 md:px-16 py-20" id="eye-section">
         <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
           {/* Interactive Eye - Left Side */}
-          <div className="flex justify-center items-center min-h-0">
+          <div className="flex justify-center items-center min-h-0 w-full overflow-hidden">
             <div className="w-full max-w-lg aspect-square">
-              <Eye size="lg" className="w-full h-full" />
+              <Eye size="lg" className="!w-full !h-full max-w-full max-h-full" />
             </div>
           </div>
           

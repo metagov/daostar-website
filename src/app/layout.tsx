@@ -16,6 +16,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+}
+
 export const metadata: Metadata = {
   title: "DAOstar | Standards, Research and Public Goods for DAOs",
   description: "Standards, Research and Public Goods for DAOs. Explore our research reports, fellowship programs, and contribute to the advancement of DAO governance.",
@@ -42,12 +48,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* Mesh Overlay */}
-        <div className="fixed inset-0 pointer-events-none z-[1] opacity-10">
+        <div className="fixed inset-0 pointer-events-none z-[1] opacity-10 overflow-hidden">
           <Image
             src="/img/mesh.png"
             alt="Mesh overlay"
             fill
-            className="object-cover"
+            className="object-cover w-full h-full"
             priority
           />
         </div>
