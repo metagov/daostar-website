@@ -206,7 +206,7 @@ export default function Home() {
             "shadow-2xl shadow-black/20"
           )}>
             <iframe
-              src="https://lu.ma/embed/calendar/cal-fo0eYOBKemGE7Y2/events"
+              src="https://lu.ma/embed/calendar/cal-fo0eYOBKemGE7Y2/events?lt=dark"
               width="100%"
               height="450"
               frameBorder="0"

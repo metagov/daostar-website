@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 const TopNavigation: React.FC = () => {
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-transparent z-[1000] py-4">
+    <nav className="absolute top-0 left-0 right-0 bg-transparent py-4 z-[1000]">
       <div className="w-full px-5 flex justify-between items-start">
         <Link
           href="/"
