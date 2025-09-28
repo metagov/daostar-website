@@ -316,21 +316,21 @@ const ContributorSection: React.FC = () => {
           <h2 className="text-xl font-medium mb-4 text-brand-accent">How It Works</h2>
           <div className="space-y-4">
             <div className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-full bg-brand-accent text-brand-dark flex items-center justify-center text-sm font-bold mt-0.5">1</div>
+              <div className="w-6 h-6 min-w-6 min-h-6 rounded-full bg-brand-accent text-brand-dark flex items-center justify-center text-sm font-bold mt-0.5 flex-shrink-0">1</div>
               <div>
                 <h3 className="font-medium text-text-primary mb-1">Join the Community</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">Join our community and biweekly research collaboration calls. Share ideas, ask questions, or co-work on research with others.</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-full bg-brand-accent text-brand-dark flex items-center justify-center text-sm font-bold mt-0.5">2</div>
+              <div className="w-6 h-6 min-w-6 min-h-6 rounded-full bg-brand-accent text-brand-dark flex items-center justify-center text-sm font-bold mt-0.5 flex-shrink-0">2</div>
               <div>
                 <h3 className="font-medium text-text-primary mb-1">Submit Your Work</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">When you&apos;re ready, submit a research piece for consideration. If accepted, you&apos;ll be recognized as a DAOstar Research Contributor.</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-full bg-brand-accent text-brand-dark flex items-center justify-center text-sm font-bold mt-0.5">3</div>
+              <div className="w-6 h-6 min-w-6 min-h-6 rounded-full bg-brand-accent text-brand-dark flex items-center justify-center text-sm font-bold mt-0.5 flex-shrink-0">3</div>
               <div>
                 <h3 className="font-medium text-text-primary mb-1">Get Published</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">We&apos;ll publish your work on our site and include it in our research directory. You&apos;ll be part of a growing network of DAO researchers and practitioners.</p>

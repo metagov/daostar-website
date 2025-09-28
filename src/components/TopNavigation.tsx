@@ -10,21 +10,21 @@ import { cn } from "@/lib/utils";
 const TopNavigation: React.FC = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 bg-transparent z-[1000] py-4">
-      <div className="w-full px-5 flex justify-between items-center">
-        <Link 
+      <div className="w-full px-5 flex justify-between items-start">
+        <Link
           href="/"
-          className="flex items-center transition-opacity hover:opacity-80"
+          className="flex items-center transition-opacity hover:opacity-80 flex-shrink-0"
         >
-          <Image 
-            src="/img/logo_dao.png" 
-            alt="DAOstar Logo" 
+          <Image
+            src="/img/logo_dao.png"
+            alt="DAOstar Logo"
             width={80}
             height={28}
-            className="h-6 w-auto"
+            className="h-6 w-auto min-w-[80px]"
           />
         </Link>
-        
-        <div className="flex items-center gap-6">
+
+        <div className="flex flex-col sm:flex-row items-end sm:items-center gap-2 sm:gap-6">
           <DropdownMenu.Root modal={false}>
             <DropdownMenu.Trigger asChild>
               <button className={cn(

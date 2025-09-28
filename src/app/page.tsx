@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen">
       {/* Hero Section */}
-      <section className="relative z-[2] min-h-[60vh] flex items-center justify-center px-4 sm:px-8 md:px-16 max-w-6xl mx-auto pt-72 md:pt-80">
+      <section className="relative z-[2] min-h-[30vh] sm:min-h-[40vh] md:min-h-[60vh] flex items-center justify-center px-4 sm:px-8 md:px-16 max-w-6xl mx-auto pt-36 sm:pt-56 md:pt-64 lg:pt-80">
         <div className="flex justify-center items-center w-full">
           <div className="text-center max-w-5xl">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-none font-light mb-6 text-text-primary font-heading">
@@ -32,7 +32,7 @@ export default function Home() {
       </section>
 
       {/* Eye/Protocols Section */}
-      <section className="relative z-[2] max-w-6xl mx-auto px-4 sm:px-8 md:px-16 py-20" id="eye-section">
+      <section className="relative z-[2] max-w-6xl mx-auto px-4 sm:px-8 md:px-16 py-8 sm:py-12 md:py-20" id="eye-section">
         <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
           {/* Interactive Eye - Left Side */}
           <div className="flex justify-center items-center min-h-0 w-full overflow-hidden">

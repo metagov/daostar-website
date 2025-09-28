@@ -18,7 +18,7 @@ export default function HandImage() {
         alt="Hand holding digital sphere"
         width={600}
         height={600}
-        className="w-auto h-auto max-w-[500px] max-h-[500px] sm:max-w-[500px] sm:max-h-[500px] md:max-w-[500px] md:max-h-[500px] lg:max-w-[500px] lg:max-h-[500px] xl:max-w-[500px] xl:max-h-[500px] drop-shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
+        className="w-auto h-auto max-w-[250px] max-h-[250px] sm:max-w-[350px] sm:max-h-[350px] md:max-w-[450px] md:max-h-[450px] lg:max-w-[500px] lg:max-h-[500px] xl:max-w-[500px] xl:max-h-[500px] drop-shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
         priority
       />
     </div>
