@@ -84,8 +84,10 @@ export default function AOSummit() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-light text-text-primary font-heading leading-none mb-8">
               London AO <span className="text-brand-accent">Summit</span>
             </h1>
-            <p className={cn(eyebrow, "leading-relaxed mb-3")}>
-              London · November 5–6, 2026 · Dinner November 5, talks November 6
+            <p className={cn(eyebrow, "leading-relaxed mb-3 tracking-[0.08em] sm:tracking-[0.15em]")}>
+              London · November 5–6, 2026
+              <br />
+              Dinner November 5, talks November 6
             </p>
             <p className="text-sm md:text-base text-text-secondary font-light">
               Co-hosted by DAOstar and ARIA&apos;s{" "}
@@ -103,7 +105,7 @@ export default function AOSummit() {
               width={556}
               height={555}
               priority
-              className="w-44 sm:w-56 md:w-64 h-auto invert opacity-90 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+              className="w-44 sm:w-56 md:w-64 h-auto drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
             />
           </div>
         </header>
@@ -118,7 +120,7 @@ export default function AOSummit() {
               Stanford AO Summit
             </Link>
             , we&apos;re excited to keep growing our global community by welcoming all of you to our next event in
-            London. Co-hosted by DAOstar and Aria, The London Autonomous Organization (AO) Summit is a workshop that
+            London. Co-hosted by DAOstar and ARIA, The London Autonomous Organization (AO) Summit is a workshop that
             will continue to develop the rapidly emerging field of autonomous organizations. Examples of AOs range from
             agent swarms to vending machines to AI villages to DAOs.
           </p>
