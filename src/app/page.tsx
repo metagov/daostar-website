@@ -27,6 +27,19 @@ export default function Home() {
               </span>
               for DAOs
             </h1>
+            <p className="mt-2 text-sm md:text-base font-light">
+              <Link
+                href="/aosummit"
+                className={cn(
+                  "text-brand-accent border-b border-brand-accent pb-px",
+                  "transition-colors duration-200 hover:text-text-primary hover:border-text-primary",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30"
+                )}
+              >
+                <span className="font-mono text-[11px] uppercase tracking-[0.1em] mr-2">Upcoming</span>
+                London AO Summit · November 5–6, 2026 →
+              </Link>
+            </p>
           </div>
         </div>
       </section>
@@ -182,6 +195,30 @@ export default function Home() {
           <h2 className="text-section text-text-primary font-heading font-light mb-6">
             Upcoming Events
           </h2>
+          <div className={cn(
+            "bg-white/5 p-6 sm:p-8 rounded-lg backdrop-blur-sm border border-white/10 text-center mb-10",
+            "transition-all duration-300 hover:bg-white/10"
+          )}>
+            <p className="font-mono text-xs uppercase tracking-[0.15em] text-brand-accent mb-3">
+              London · November 5–6, 2026
+            </p>
+            <h3 className="text-2xl md:text-3xl text-text-primary font-heading font-light mb-4">
+              London AO Summit
+            </h3>
+            <p className="text-sm md:text-base lg:text-lg text-text-secondary font-light max-w-2xl mx-auto leading-relaxed mb-6">
+              Co-hosted by DAOstar and ARIA, a workshop for researchers and builders developing the rapidly emerging field of autonomous organizations.
+            </p>
+            <Link
+              href="/aosummit"
+              className={cn(
+                "inline-flex items-center px-6 py-3 bg-transparent text-text-primary font-medium rounded-lg border border-brand-accent",
+                "transition-all duration-300 hover:bg-brand-accent/10 hover:text-brand-accent hover:shadow-lg hover:-translate-y-1",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/30"
+              )}
+            >
+              Learn more →
+            </Link>
+          </div>
           <p className="text-sm md:text-base lg:text-lg text-text-secondary font-light max-w-3xl mx-auto leading-relaxed mb-6">
             We regularly host community calls to create a space to zoom out and explore how we can make DAOs work, scale, and matter. 
             Building or researching something cool in DAOs, digital governance, or organizational behavior? We&apos;d love to learn from you.
